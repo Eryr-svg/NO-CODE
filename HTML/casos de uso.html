@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexiones de Usuario - Netflix</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(229, 9, 20, 0.2);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #E50914;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #b3b3b3;
+            font-size: 1.2rem;
+        }
+        .connections-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .connection {
+            display: flex;
+            align-items: center;
+            background: rgba(45, 45, 45, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .connection-number {
+            background: #E50914;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .connection-content {
+            flex-grow: 1;
+        }
+        .connection-title {
+            color: #00a8ff;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        .connection-description {
+            color: #b3b3b3;
+            line-height: 1.5;
+        }
+        .connection-arrow {
+            margin: 0 20px;
+            font-size: 2rem;
+            color: #ff9f43;
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+        .connection-direction {
+            background: rgba(0, 168, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #00a8ff;
+            flex-shrink: 0;
+            min-width: 120px;
+            text-align: center;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .legend {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(45, 45, 45, 0.8);
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+        .legend-title {
+            color: #E50914;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+        .legend-text {
+            color: #b3b3b3;
+        }
+        @media (max-width: 768px) {
+            .connection {
+                flex-direction: column;
+                text-align: center;
+            }
+            .connection-arrow {
+                margin: 15px 0;
+                transform: rotate(90deg);
+            }
+            .connection-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Conexiones entre Usuario y Netflix</h1>
+            <p class="subtitle">Relaciones y flujos de interacción en el sistema</p>
+        </header>
+
+        <div class="connections-container">
+            <div class="connection">
+                <div class="connection-number">1</div>
+                <div class="connection-content">
+                    <div class="connection-title">Usuario → Iniciar Sesión</div>
+                    <div class="connection-description">El usuario se autentica en el sistema proporcionando sus credenciales (email y contraseña).</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Usuario a Sistema</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">2</div>
+                <div class="connection-content">
+                    <div class="connection-title">Usuario → Reproducir Contenido</div>
+                    <div class="connection-description">El usuario selecciona y reproduce una película, serie o documental.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Usuario a Sistema</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">3</div>
+                <div class="connection-content">
+                    <div class="connection-title">Usuario → Buscar Contenido</div>
+                    <div class="connection-description">El usuario utiliza la función de búsqueda para encontrar títulos específicos.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Usuario a Sistema</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">4</div>
+                <div class="connection-content">
+                    <div class="connection-title">Usuario → Gestionar Mi Lista</div>
+                    <div class="connection-description">El usuario agrega o elimina contenido de su lista personal.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Usuario a Sistema</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">5</div>
+                <div class="connection-content">
+                    <div class="connection-title">Sistema → Recomendar Contenido</div>
+                    <div class="connection-description">Netflix sugiere contenido basado en el historial de visualización y preferencias.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Sistema a Usuario</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">6</div>
+                <div class="connection-content">
+                    <div class="connection-title">Usuario → Gestionar Perfiles</div>
+                    <div class="connection-description">El usuario crea, modifica o elimina perfiles en su cuenta.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Usuario a Sistema</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">7</div>
+                <div class="connection-content">
+                    <div class="connection-title">Sistema → Adaptar Calidad de Video</div>
+                    <div class="connection-description">Netflix ajusta automáticamente la calidad del streaming según la velocidad de conexión.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Sistema a Usuario</div>
+            </div>
+
+            <div class="connection">
+                <div class="connection-number">8</div>
+                <div class="connection-content">
+                    <div class="connection-title">Usuario → Configurar Cuenta</div>
+                    <div class="connection-description">El usuario modifica la configuración de su cuenta y preferencias.</div>
+                </div>
+                <div class="connection-arrow">→</div>
+                <div class="connection-direction">Usuario a Sistema</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-title">Leyenda de Direcciones</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #00a8ff;"></div>
+                    <div class="legend-text">Usuario a Sistema</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff9f43;"></div>
+                    <div class="legend-text">Sistema a Usuario</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #E50914;"></div>
+                    <div class="legend-text">Flujo de datos bidireccional</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animación para las flechas
+        document.addEventListener('DOMContentLoaded', function() {
+            const arrows = document.querySelectorAll('.connection-arrow');
+            
+            arrows.forEach((arrow, index) => {
+                setTimeout(() => {
+                    arrow.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
